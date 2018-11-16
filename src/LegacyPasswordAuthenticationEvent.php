@@ -8,8 +8,6 @@ declare(strict_types=1);
 
 namespace AaronSaray\LaravelLegacyPasswords;
 
-use Illuminate\Contracts\Auth\Authenticatable;
-
 /**
  * Class LegacyPasswordAuthenticationEvent
  * @package AaronSaray\LaravelLegacyPasswords
@@ -17,7 +15,7 @@ use Illuminate\Contracts\Auth\Authenticatable;
 class LegacyPasswordAuthenticationEvent
 {
     /**
-     * @var Authenticatable the user who authenticated
+     * @var HasLegacyPasswordContract the user who authenticated
      */
     public $user;
 
@@ -28,10 +26,10 @@ class LegacyPasswordAuthenticationEvent
     
     /**
      * LegacyPasswordAuthenticationEvent constructor.
-     * @param Authenticatable $user
+     * @param HasLegacyPasswordContract $user
      * @param array $credentials
      */
-    public function __construct(Authenticatable $user, array $credentials)
+    public function __construct(HasLegacyPasswordContract $user, array $credentials)
     {
         $this->user = $user;
         $this->credentials = $credentials;

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
 use Illuminate\Contracts\Hashing\Hasher;
 use Illuminate\Contracts\Events\Dispatcher;
+use Illuminate\Support\Facades\Event;
 
 /**
  * Class ServiceProvider
@@ -32,5 +33,7 @@ class ServiceProvider extends LaravelServiceProvider
                 $this->app['config']['auth']['providers']['users']['model']
             );
         });
+        
+        Event::listen(LegacyPasswordAuthenticationEvent::class, LegacyPasswordConversionListener::class);
     }
 }

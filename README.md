@@ -15,9 +15,10 @@ Then, run your migrations (this package registers some)
 Next, find your user model (this package is configured that you use the
 default setup of the `users` table - but it doesn't matter where your
 user model is or what it's named) and use the `AaronSaray\LaravelLegacyPasswords\HasLegacyPassword` trait.
+Also implement the `AaronSaray\LaravelLegacyPasswords\HasLegacyPasswordContract`.
 
 ```
-class User extends Authenticatable
+class User extends Authenticatable implements AaronSaray\LaravelLegacyPasswords\HasLegacyPasswordContract
 {
   use AaronSaray\LaravelLegacyPasswords\HasLegacyPassword;
 ```
@@ -38,3 +39,7 @@ class LegacyPasswordAuthenticationStrategy implements LegacyPasswordAuthenticati
     }
 }
 ```
+
+## Todo
+
+- unit tests!! (right now this is being tested mechanically in the projects I'm using them in)
