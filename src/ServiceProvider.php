@@ -27,9 +27,9 @@ class ServiceProvider extends LaravelServiceProvider
 
         Auth::provider('laravel-legacy-passwords', function () {
             return new AuthenticationService(
+                $this->app->make(Dispatcher::class),
                 $this->app->make(LegacyPasswordAuthenticationStrategyContract::class),
                 $this->app->make(Hasher::class),
-                $this->app->make(Dispatcher::class),
                 $this->app['config']['auth']['providers']['users']['model']
             );
         });

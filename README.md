@@ -40,7 +40,7 @@ class MyLegacyPasswordAuthenticationStrategy implements LegacyPasswordAuthentica
 }
 ```
 
-Finally, bind that into Laravel.  For example, you might do this in the `AuthServiceProvider`:
+Then, bind that into Laravel.  For example, you might do this in the `AuthServiceProvider`:
 
 ```
 $this->app->bind(LegacyPasswordAuthenticationStrategyContract::class, function() {
@@ -49,6 +49,9 @@ $this->app->bind(LegacyPasswordAuthenticationStrategyContract::class, function()
 ```
 
 Remember, you can inject requirements into your strategy here if you need to.
+
+Finally, modify your `config/auth.php` key `providers.users.driver` to be `laravel-legacy-passwords` so that
+we can inject this authentication system instead of the standard one.
 
 How do you create the legacy passwords? Easy.  Something like this:
 
