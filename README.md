@@ -22,3 +22,19 @@ class User extends Authenticatable
   use AaronSaray\LaravelLegacyPasswords\HasLegacyPassword;
 ```
 
+Create a Legacy Password Authentication Strategy, implement `AaronSaray\LaravelLegacyPasswords\LegacyPasswordAuthenticationStrategyContract`
+
+Here's an example; Let's assume our old system was plain md5.
+
+```php
+class LegacyPasswordAuthenticationStrategy implements LegacyPasswordAuthenticationStrategyContract
+{
+    public function validateCredentials(Authenticatable $user, array $credentials): bool
+    {
+        $password = $credentials['password'];
+        $hashed = md5($password);
+
+        return $user->legacy_password->data['md5'] === $hashed;
+    }
+}
+```

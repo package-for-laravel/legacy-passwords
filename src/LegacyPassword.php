@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @package AaronSaray\LaravelLegacyPasswords
  * @property int $user_id
+ * @property array $data
  */
 class LegacyPassword extends Model
 {
@@ -34,6 +35,15 @@ class LegacyPassword extends Model
      * @var array
      */
     protected $fillable = [
-        'passwordData'
+        'data'
+    ];
+
+    /**
+     * Casting to native types
+     * 
+     * @var array
+     */
+    protected $casts = [
+        'data' => 'array'
     ];
 }

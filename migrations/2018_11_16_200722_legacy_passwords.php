@@ -22,7 +22,7 @@ class LegacyPasswords extends Migration
     {
         Schema::create('user_legacy_passwords', function (Blueprint $table) {
             $table->unsignedInteger('user_id');
-            $table->json('passwordData');
+            $table->json('data');
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
