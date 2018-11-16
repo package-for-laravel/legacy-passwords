@@ -28,7 +28,7 @@ Create a Legacy Password Authentication Strategy, implement `AaronSaray\LaravelL
 Here's an example; Let's assume our old system was plain md5.
 
 ```php
-class LegacyPasswordAuthenticationStrategy implements LegacyPasswordAuthenticationStrategyContract
+class MyLegacyPasswordAuthenticationStrategy implements LegacyPasswordAuthenticationStrategyContract
 {
     public function validateCredentials(Authenticatable $user, array $credentials): bool
     {
@@ -39,6 +39,16 @@ class LegacyPasswordAuthenticationStrategy implements LegacyPasswordAuthenticati
     }
 }
 ```
+
+Finally, bind that into Laravel.  For example, you might do this in the `AuthServiceProvider`:
+
+```
+$this->app->bind(LegacyPasswordAuthenticationStrategyContract::class, function() {
+    return new MyLegacyPasswordAuthenticationStrategy();
+});
+```
+
+Remember, you can inject requirements into your strategy here if you need to.
 
 ## Todo
 
