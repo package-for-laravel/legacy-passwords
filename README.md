@@ -35,7 +35,7 @@ class MyLegacyPasswordAuthenticationStrategy implements LegacyPasswordAuthentica
         $password = $credentials['password'];
         $hashed = md5($password);
 
-        return $user->legacy_password->data['md5'] === $hashed;
+        return $user->legacyPassword->data['md5'] === $hashed;
     }
 }
 ```
