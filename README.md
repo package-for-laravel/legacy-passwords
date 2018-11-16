@@ -50,6 +50,19 @@ $this->app->bind(LegacyPasswordAuthenticationStrategyContract::class, function()
 
 Remember, you can inject requirements into your strategy here if you need to.
 
+How do you create the legacy passwords? Easy.  Something like this:
+
+```
+$user = User::create(); // you created this with your legacy data
+$user->legacyPassword()->create([
+    'data' => [
+        'md5' => $oldUser['md5']
+    ]
+]);
+```
+
+You can include anything you need for your strategy in the `data` key.
+
 ## Todo
 
 - unit tests!! (right now this is being tested mechanically in the projects I'm using them in)
