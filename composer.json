@@ -14,7 +14,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "AaronSaray\\LaravelLegacyPasswords\\LegacyPasswordProvider"
+                "AaronSaray\\LaravelLegacyPasswords\\ServiceProvider"
             ]
         }
     }
