@@ -18,12 +18,12 @@ use Illuminate\Contracts\Events\Dispatcher;
 class AuthenticationService extends EloquentUserProvider
 {
     /**
-     * @var LegacyPasswordAuthenticationStrategyContract 
+     * @var LegacyPasswordAuthenticationStrategyContract
      */
     protected $strategy;
 
     /**
-     * @var Dispatcher 
+     * @var Dispatcher
      */
     protected $dispatcher;
 
@@ -35,9 +35,9 @@ class AuthenticationService extends EloquentUserProvider
      * @param string $model
      */
     public function __construct(
-        Dispatcher $dispatcher, 
-        LegacyPasswordAuthenticationStrategyContract $strategy, 
-        HasherContract $hasher, 
+        Dispatcher $dispatcher,
+        LegacyPasswordAuthenticationStrategyContract $strategy,
+        HasherContract $hasher,
         string $model
     ) {
         $this->dispatcher = $dispatcher;

@@ -40,7 +40,7 @@ class LegacyPassword extends Model
 
     /**
      * Casting to native types
-     * 
+     *
      * @var array
      */
     protected $casts = [

@@ -6,6 +6,8 @@ have users have to reset their password.
 
 ## Install
 
+This project requires Laravel 5.5+.
+
 `composer require aaronsaray/laravel-legacy-passwords`
 
 Then, run your migrations (this package registers some)
@@ -18,9 +20,12 @@ user model is or what it's named) and use the `AaronSaray\LaravelLegacyPasswords
 Also implement the `AaronSaray\LaravelLegacyPasswords\HasLegacyPasswordContract`.
 
 ```
-class User extends Authenticatable implements AaronSaray\LaravelLegacyPasswords\HasLegacyPasswordContract
+use AaronSaray\LaravelLegacyPasswords\HasLegacyPasswordContract;
+use AaronSaray\LaravelLegacyPasswords\HasLegacyPassword;
+
+class User extends Authenticatable implements HasLegacyPasswordContract
 {
-  use AaronSaray\LaravelLegacyPasswords\HasLegacyPassword;
+  use HasLegacyPassword;
 ```
 
 Create a Legacy Password Authentication Strategy, implement `AaronSaray\LaravelLegacyPasswords\LegacyPasswordAuthenticationStrategyContract`
@@ -28,6 +33,8 @@ Create a Legacy Password Authentication Strategy, implement `AaronSaray\LaravelL
 Here's an example; Let's assume our old system was plain md5.
 
 ```php
+use AaronSaray\LaravelLegacyPasswords\LegacyPasswordAuthenticationStrategyContract;
+
 class MyLegacyPasswordAuthenticationStrategy implements LegacyPasswordAuthenticationStrategyContract
 {
     public function validateCredentials(Authenticatable $user, array $credentials): bool
@@ -65,7 +72,3 @@ $user->legacyPassword()->create([
 ```
 
 You can include anything you need for your strategy in the `data` key.
-
-## Todo
-
-- unit tests!! (right now this is being tested mechanically in the projects I'm using them in)

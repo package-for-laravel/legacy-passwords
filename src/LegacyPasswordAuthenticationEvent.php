@@ -1,7 +1,7 @@
 <?php
 /**
  * An event to indicate that a legacy authentication has happened
- * 
+ *
  * Note: we do not allow queuing here or serializing because credentials are sensitive
  */
 declare(strict_types=1);
