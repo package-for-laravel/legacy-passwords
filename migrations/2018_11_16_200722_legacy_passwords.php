@@ -21,7 +21,7 @@ class LegacyPasswords extends Migration
     public function up()
     {
         Schema::create('user_legacy_passwords', function (Blueprint $table) {
-            $table->unsignedInteger('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->json('data');
             $table->timestamps();
 
