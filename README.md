@@ -6,7 +6,7 @@ have users have to reset their password.
 
 ## Install
 
-This project requires Laravel 5.5+.
+This project requires Laravel 5.8+.
 
 `composer require aaronsaray/laravel-legacy-passwords`
 
