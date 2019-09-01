@@ -8,7 +8,7 @@ have users have to reset their password.
 
 This project requires Laravel 5.8+.
 
-`composer require aaronsaray/laravel-legacy-passwords`
+`composer require package-for-laravel/legacy-passwords`
 
 Then, run your migrations (this package registers some)
 
@@ -16,24 +16,24 @@ Then, run your migrations (this package registers some)
 
 Next, find your user model (this package is configured that you use the
 default setup of the `users` table - but it doesn't matter where your
-user model is or what it's named) and use the `AaronSaray\LaravelLegacyPasswords\HasLegacyPassword` trait.
-Also implement the `AaronSaray\LaravelLegacyPasswords\HasLegacyPasswordContract`.
+user model is or what it's named) and use the `PackageForLaravel\LegacyPasswords\HasLegacyPassword` trait.
+Also implement the `PackageForLaravel\LegacyPasswords\HasLegacyPasswordContract`.
 
 ```
-use AaronSaray\LaravelLegacyPasswords\HasLegacyPasswordContract;
-use AaronSaray\LaravelLegacyPasswords\HasLegacyPassword;
+use PackageForLaravel\LegacyPasswords\HasLegacyPasswordContract;
+use PackageForLaravel\LegacyPasswords\HasLegacyPassword;
 
 class User extends Authenticatable implements HasLegacyPasswordContract
 {
   use HasLegacyPassword;
 ```
 
-Create a Legacy Password Authentication Strategy, implement `AaronSaray\LaravelLegacyPasswords\LegacyPasswordAuthenticationStrategyContract`
+Create a Legacy Password Authentication Strategy, implement `PackageForLaravel\LegacyPasswords\LegacyPasswordAuthenticationStrategyContract`
 
 Here's an example; Let's assume our old system was plain md5.
 
 ```php
-use AaronSaray\LaravelLegacyPasswords\LegacyPasswordAuthenticationStrategyContract;
+use PackageForLaravel\LegacyPasswords\LegacyPasswordAuthenticationStrategyContract;
 
 class MyLegacyPasswordAuthenticationStrategy implements LegacyPasswordAuthenticationStrategyContract
 {

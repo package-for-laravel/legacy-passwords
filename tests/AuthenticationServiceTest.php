@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace AaronSaray\LaravelLegacyPasswords\Test;
+namespace PackageForLaravel\LegacyPasswords\Test;
 
-use AaronSaray\LaravelLegacyPasswords\AuthenticationService;
-use AaronSaray\LaravelLegacyPasswords\HasLegacyPasswordContract;
-use AaronSaray\LaravelLegacyPasswords\LegacyPasswordAuthenticationEvent;
-use AaronSaray\LaravelLegacyPasswords\LegacyPasswordAuthenticationStrategyContract;
+use PackageForLaravel\LegacyPasswords\AuthenticationService;
+use PackageForLaravel\LegacyPasswords\HasLegacyPasswordContract;
+use PackageForLaravel\LegacyPasswords\LegacyPasswordAuthenticationEvent;
+use PackageForLaravel\LegacyPasswords\LegacyPasswordAuthenticationStrategyContract;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User;
 use Mockery\MockInterface;
@@ -16,7 +16,7 @@ use Illuminate\Contracts\Events\Dispatcher;
 
 /**
  * Class AuthenticationServiceTest
- * @package AaronSaray\LaravelLegacyPasswords\Test
+ * @package PackageForLaravel\LegacyPasswords\Test
  */
 class AuthenticationServiceTest extends TestCase
 {
@@ -39,7 +39,7 @@ class AuthenticationServiceTest extends TestCase
      * @var LegacyPasswordAuthenticationStrategyContract|MockInterface
      */
     protected $strategyMock;
-    
+
     public function setUp()
     {
         parent::setUp();
@@ -55,16 +55,16 @@ class AuthenticationServiceTest extends TestCase
         $credentials = ['password' => 'my-password'];
 
         $this->hasherMock->shouldReceive('check')->once()->with($credentials['password'], $user->password)->andReturnTrue();
-        
+
         $service = new AuthenticationService($this->dispatcherMock, $this->strategyMock, $this->hasherMock, $this->model);
         $this->assertTrue($service->validateCredentials($user, $credentials));
     }
-    
+
     public function testValidateLegacyUserFails(): void
     {
         $user = new User();
         $credentials = ['password' => 'my-password'];
-        
+
         $this->strategyMock->shouldReceive('validateCredentials')->once()->with($user, $credentials)->andReturnFalse();
 
         $service = new AuthenticationService($this->dispatcherMock, $this->strategyMock, $this->hasherMock, $this->model);

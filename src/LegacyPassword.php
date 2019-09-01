@@ -6,14 +6,14 @@
  */
 declare(strict_types=1);
 
-namespace AaronSaray\LaravelLegacyPasswords;
+namespace PackageForLaravel\LegacyPasswords;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class LegacyPassword
  *
- * @package AaronSaray\LaravelLegacyPasswords
+ * @package PackageForLaravel\LegacyPasswords
  * @property int $user_id
  * @property array $data
  */

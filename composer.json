@@ -1,5 +1,5 @@
 {
-    "name": "aaronsaray/laravel-legacy-passwords",
+    "name": "package-for-laravel/legacy-passwords",
     "description": "Toolset to migrate legacy passwords to your current laravel project",
     "type": "library",
     "license": "MIT",
@@ -9,18 +9,18 @@
     },
     "autoload": {
         "psr-4": {
-            "AaronSaray\\LaravelLegacyPasswords\\": "src/"
+            "PackageForLaravel\\LegacyPasswords\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "AaronSaray\\LaravelLegacyPasswords\\Test\\": "tests/"
+            "PackageForLaravel\\LegacyPasswords\\Test\\": "tests/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "AaronSaray\\LaravelLegacyPasswords\\ServiceProvider"
+                "PackageForLaravel\\LegacyPasswords\\ServiceProvider"
             ]
         }
     },

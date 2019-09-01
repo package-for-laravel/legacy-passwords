@@ -5,13 +5,13 @@
  */
 declare(strict_types=1);
 
-namespace AaronSaray\LaravelLegacyPasswords;
+namespace PackageForLaravel\LegacyPasswords;
 
 use Illuminate\Contracts\Hashing\Hasher;
 
 /**
  * Class LegacyPasswordConversionListener
- * @package AaronSaray\LaravelLegacyPasswords
+ * @package PackageForLaravel\LegacyPasswords
  */
 class LegacyPasswordConversionListener
 {

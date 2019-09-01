@@ -6,11 +6,11 @@
  */
 declare(strict_types=1);
 
-namespace AaronSaray\LaravelLegacyPasswords;
+namespace PackageForLaravel\LegacyPasswords;
 
 /**
  * Class LegacyPasswordAuthenticationEvent
- * @package AaronSaray\LaravelLegacyPasswords
+ * @package PackageForLaravel\LegacyPasswords
  */
 class LegacyPasswordAuthenticationEvent
 {
@@ -23,7 +23,7 @@ class LegacyPasswordAuthenticationEvent
      * @var array the credentials from the authentication
      */
     public $credentials;
-    
+
     /**
      * LegacyPasswordAuthenticationEvent constructor.
      * @param HasLegacyPasswordContract $user

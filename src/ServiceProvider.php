@@ -4,7 +4,7 @@
  */
 declare(strict_types=1);
 
-namespace AaronSaray\LaravelLegacyPasswords;
+namespace PackageForLaravel\LegacyPasswords;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\ServiceProvider as LaravelServiceProvider;
@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Event;
 
 /**
  * Class ServiceProvider
- * @package AaronSaray\LaravelLegacyPasswords
+ * @package PackageForLaravel\LegacyPasswords
  */
 class ServiceProvider extends LaravelServiceProvider
 {
@@ -33,7 +33,7 @@ class ServiceProvider extends LaravelServiceProvider
                 $this->app['config']['auth']['providers']['users']['model']
             );
         });
-        
+
         Event::listen(LegacyPasswordAuthenticationEvent::class, LegacyPasswordConversionListener::class);
     }
 }

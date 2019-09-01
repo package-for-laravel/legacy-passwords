@@ -4,7 +4,7 @@
  */
 declare(strict_types=1);
 
-namespace AaronSaray\LaravelLegacyPasswords;
+namespace PackageForLaravel\LegacyPasswords;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\EloquentUserProvider;
@@ -13,7 +13,7 @@ use Illuminate\Contracts\Events\Dispatcher;
 
 /**
  * Class AuthenticationService
- * @package AaronSaray\LaravelLegacyPasswords
+ * @package PackageForLaravel\LegacyPasswords
  */
 class AuthenticationService extends EloquentUserProvider
 {
