@@ -72,3 +72,7 @@ $user->legacyPassword()->create([
 ```
 
 You can include anything you need for your strategy in the `data` key.
+
+## Credits
+
+This package is created and maintained by [Aaron Saray](https://github.com/aaronsaray) 

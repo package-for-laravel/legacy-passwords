@@ -2,6 +2,12 @@
     "name": "package-for-laravel/legacy-passwords",
     "description": "Toolset to migrate legacy passwords to your current laravel project",
     "type": "library",
+    "authors": [
+        {
+            "name": "Aaron Saray",
+            "email": "aaron@aaronsaray.com"
+        }
+    ],
     "license": "MIT",
     "require": {
         "php": "^7.1",
