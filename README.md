@@ -1,5 +1,9 @@
 # Laravel Legacy Passwords
 
+```
+ARCHIVED: This project is archived and no longer maintained.
+```
+
 This is a tool to migrate legacy passwords in your application to the standard Laravel install.
 This is particularly useful when you're rewriting a project into Laravel, but you don't want to
 have users have to reset their password.
